@@ -8,7 +8,10 @@ void Section::print() const
 
 void Section::Accept(Visitor* visitor) const
 {
-	visitor->visitSection(this);
+	for (Element* e : this->children) {
+		e->Accept(visitor);//?? why -> , but not .
+	}
+	
 }
 
 void Section::addElement(Element* element)

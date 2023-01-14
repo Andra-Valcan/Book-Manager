@@ -41,7 +41,7 @@ int main()
     cap1->addElement(new Paragraph("some text"));
     cap1->addElement(new Table("table 1"));
 
-    ConcreteVisitor* stats = new ConcreteVisitor();//BookStatistics
+    ConcreteVisitor* stats = new ConcreteVisitor();//ConcreteVisitor is BookStatistics
     cap1->Accept(stats);
     stats->printStatistics();
 

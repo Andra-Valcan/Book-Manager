@@ -6,41 +6,48 @@
 #include "ImageProxi.h"
 #include "Image.h"
 #include "Table.h"
-void ConcreteVisitor::visitBook(const Book* book) const
+void ConcreteVisitor::visitBook(const Book* book) 
 {
 	book->print();
 }
 
-void ConcreteVisitor::visitSection(const Section* section) const
+void ConcreteVisitor::visitSection(const Section* section) 
 {
-	section->print();
+	sectionNumber += 1;
+	
 }
 
-void ConcreteVisitor::visitTableOfContents(const TableOfContent* toc) const
+void ConcreteVisitor::visitTableOfContents(const TableOfContent* toc) 
 {
-	toc->print();
+	tableOfContentNumber += 1;
 }
 
-void ConcreteVisitor::visitParagraph(const Paragraph* paragraph) const
+void ConcreteVisitor::visitParagraph(const Paragraph* paragraph) 
 {
-	paragraph->print();
+	paragraphsNumber += 1;
 }
 
-void ConcreteVisitor::visitImageProxi(const ImageProxi* ip) const
+void ConcreteVisitor::visitImageProxi(const ImageProxi* ip) 
 {
-	ip->print();
+	imagesProxiNUmber += 1;
 }
 
-void ConcreteVisitor::visitImage(const Image* image) const
+void ConcreteVisitor::visitImage(const Image* image) 
 {
-	image->print();
+	iamgesNumber += 1;
 }
 
-void ConcreteVisitor::visitTable(const Table* table) const
+void ConcreteVisitor::visitTable(const Table* table) 
 {
-	table->print();
+	tablesNumber = tablesNumber + 1;	
 }
+
 
 void ConcreteVisitor::printStatistics()
 {
+	std::cout << "Book Statistics:\n";
+	std::cout << "*** Number Of Images: " << this->iamgesNumber << std::endl;
+	std::cout << "*** Number Of Tables:" << this->tablesNumber << std::endl;
+	std::cout << "*** Numver Of Paragraphs:" << this->paragraphsNumber << std::endl;
 }
+
